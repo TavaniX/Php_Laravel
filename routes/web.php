@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\maController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,4 @@ Route::get('/ma/hello', function(){
    return "Hello, Test";
 });
 
+Route::get('/ma/events', [maController::class, 'getEvents']);
