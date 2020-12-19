@@ -22,14 +22,14 @@
         </script>
         <title>Appointments</title>
     </head>
-    <body>
+    <body style="width: 75%; margin: auto;">
         <table class="table table-dark table-hover">
             <thead>
                 <tr>
                     <th scope="col">Release details</th>
                     <th scope="col" >
                         <div style="display: inline-block">Make reservation</div>
-                        <div style="display: inline-block; position: absolute; right: 1%"><a href="/ma/movies" class="badge badge-light">Back to list</a></div>
+                        <h4 style="display: inline-block; position: absolute; right: 15%; top: 1%;"><a href="/ma/movies" class="badge badge-light">Back to list</a></h4>
                     </th>
                 </tr>
             </thead>
@@ -40,8 +40,8 @@
                         @if($d['user'] == '')
                             <td>
                                 <form method="get" action="{{ action ([\App\Http\Controllers\maController::class, 'reserveVisit']) }}">
-                                    <div class="form-group">
-                                        <input type="text" size="1" name="nameInput" required class="form-control-inline" style="width: 50%" id="exampleFormControlInput1" placeholder="Enter your name">
+                                    <div class="form-group" style="display: flex; align-content: center; vertical-align: center;">
+                                        <input type="text" size="1" name="nameInput" required class="form-control-inline" style="width: 50%; margin-right: 15px; border-radius: 5px;" id="exampleFormControlInput1" placeholder="Enter your name">
                                         <input type="hidden" value="{{$d['id']}}" name="appointmentId"/>
                                         <button type="submit" class="btn btn-primary btn-sm">Reserve</button>
                                     </div>
@@ -54,7 +54,6 @@
                 @endforeach
             </tbody>
         </table>
-
     </body>
 </html>
 

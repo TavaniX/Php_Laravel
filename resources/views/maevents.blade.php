@@ -15,28 +15,19 @@
         </style>
     </head>
     <body>
-        <table class="table table-dark table-hover">
-            <h1 style="text-align: center; color: white;">Movies</h1><br />
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col" class="text-center">Movie title</th>
-                    <th scope="col" class="text-center">Movie description</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($events as $d)
-                    <tr>
-                        <th>{{$d['id']}}</th>
-                        <td>{{$d['eventName'] ?? ''}}</td>
-                        <td>{{$d['eventDescription']}}</td>
-                        <td><a href="/ma/movies/selectedMovie/{{$d['id']}}" class="badge badge-primary">More details</a></td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-
+        <h1 style="text-align: center; color: white;">Movies</h1>
+        <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; ">
+            @foreach($events as $d)
+                <div class="card text-white bg-dark mb-3 border-light" style="width: 25%; margin: 25px;">
+                    <img class="card-img-top" src="{{ $d['eventImage'] }}" alt="Card image cap">
+                    <div class="card-body" style="display: flex; flex-wrap: wrap;">
+                        <h5 class="card-title"> {{$d['eventName'] ?? ''}} </h5>
+                        <p class="card-text"> {{$d['eventDescription']}} </p>
+                        <a href="/ma/movies/selectedMovie/{{$d['id']}}" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </body>
 </html>
 
