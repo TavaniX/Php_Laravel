@@ -22,5 +22,6 @@ Route::get('/ma/hello', function(){
    return "Hello, Test";
 });
 
-Route::get('/ma/test', [maController::class, 'test']);
-Route::get('/ma/events', [maController::class, 'eventList']);
+Route::get("/ma/movies", [maController::class, 'movieList']);
+Route::get("/ma/movies/selectedMovie/{id}",[maController::class, 'selectedMovie']);
+Route::get("/ma/movies/reserveVisit",[maController::class, 'reserveVisit']);
