@@ -5,13 +5,6 @@ use Illuminate\Http\Request;
 
 class maController
 {
-    public function testEvent(Request $request)
-    {
-        $events = \App\maEvent::select('eventName', 'eventDescription', 'id')->get();
-        $appointments = \App\maAppointment::select('user', 'appointmentDate', 'id')->get();
-        return view('maevents', ['events' => $events, 'appointments' => $appointments, ]);
-    }
-
     public function movieList(Request $request)
     {
         $events = \App\maEvent::find(1)->get();
@@ -29,5 +22,4 @@ class maController
         $appointments = \App\maAppointment::query()->where('id', $id)->update(['user' => $userName]);
         return back();
     }
-
 }
